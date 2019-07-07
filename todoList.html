@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODOLIST</title>
+	<link rel="stylesheet" href="styles.css">  
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>LISTKING</h1>
+            <span class = "text_header"> BUY GROGERIES <span>
+            </div>
+            <div class="bottom_wrapper">
+                <input type="text" placeholder="Add description..." id="toDoEl">
+                <button> <span class="addBtn" onclick="newElement()">NEW ITEM...</span> </button>
+            </div>
+            <ul id="list">
+            </ul>
+            <script type="text/javascript">
+                var list = document.querySelector("#list");
+                var inputNote = document.querySelector('input[placeholder="Add description..."]');
+                var select = document.querySelector("#sel");
+                var notesArr = [];
+                function newElement() {
+    var li = document.createElement('li');  
+    li.setAttribute("class","allLi");
+    var inputValue = document.getElementById('toDoEl').value;
+    var t = document.createTextNode(inputValue); 
+    li.appendChild(t); 
+    if(inputValue == "") {
+     alert("Введите ваше дело!");
+ } else {
+       document.getElementById('list').appendChild(li); 
+   }
+   document.getElementById('toDoEl').value = "";
+    var span = document.createElement('SPAN');
+    var txt = document.createTextNode("X"); 
+    span.className = "close"; 
+    span.appendChild(txt);
+    li.appendChild(span);  
+	span.setAttribute("class","close");
+	span.onclick = function(){
+		li.remove();
+	}
+}
+
+
+</script>
+</body>
+</html>
